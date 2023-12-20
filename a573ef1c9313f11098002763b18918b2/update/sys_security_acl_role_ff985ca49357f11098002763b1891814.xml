@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-20 12:45:34</sys_created_on>
+        <sys_id>ff985ca49357f11098002763b1891814</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sn_contingent_mgmt_contingent_task.sn_contingent_mgmt.admin</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_security_acl display_value="sn_contingent_mgmt_contingent_task">7e03b3989393f11098002763b18918d5</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_ff985ca49357f11098002763b1891814</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-20 12:45:34</sys_updated_on>
+        <sys_user_role display_value="sn_contingent_mgmt.admin" name="sn_contingent_mgmt.admin">4b1833d093d3f11098002763b18918d0</sys_user_role>
+    </sys_security_acl_role>
+</record_update>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="f65deb109393f11098002763b1891880" label="Contract Owner" max_length="40" name="sn_contingent_mgmt_contract_owner" type="collection">
+        <element label="Company name" max_length="32" name="company_name" reference="sn_contingent_mgmt_company" type="reference"/>
+        <element label="Owner name" max_length="32" name="owner_name" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="company_name"/>
+        </index>
+        <index name="index2">
+            <element name="owner_name"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="567c6f9c9353f11098002763b18918e7" label="Company" max_length="40" name="sn_contingent_mgmt_company" type="collection">
+        <element label="Company Name" mandatory="true" max_length="40" name="company_name" type="string"/>
+        <element label="Description" max_length="200" name="description" type="string"/>
+    </element>
+</database>

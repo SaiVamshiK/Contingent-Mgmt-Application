@@ -2,17 +2,17 @@
     <sys_security_acl_role action="INSERT_OR_UPDATE">
         <sys_class_name>sys_security_acl_role</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-12-20 12:12:00</sys_created_on>
-        <sys_id>5fe090e89317f11098002763b18918cd</sys_id>
+        <sys_created_on>2023-12-21 06:45:36</sys_created_on>
+        <sys_id>c4ef80b4931ff11098002763b18918d5</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>.sn_contingent_mgmt.contingent_owner</sys_name>
+        <sys_name>.sn_contingent_mgmt.admin</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
-        <sys_security_acl display_value="sn_contingent_mgmt_company">88d0d4a89317f11098002763b18918d0</sys_security_acl>
-        <sys_update_name>sys_security_acl_role_5fe090e89317f11098002763b18918cd</sys_update_name>
+        <sys_security_acl display_value="sn_contingent_mgmt_company">7fdf80b4931ff11098002763b18918ca</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_c4ef80b4931ff11098002763b18918d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-12-20 12:12:00</sys_updated_on>
-        <sys_user_role display_value="sn_contingent_mgmt.contingent_owner" name="sn_contingent_mgmt.contingent_owner">7b70fb949393f11098002763b18918fa</sys_user_role>
+        <sys_updated_on>2023-12-21 06:45:36</sys_updated_on>
+        <sys_user_role display_value="sn_contingent_mgmt.admin" name="sn_contingent_mgmt.admin">4b1833d093d3f11098002763b18918d0</sys_user_role>
     </sys_security_acl_role>
 </record_update>

@@ -11,14 +11,14 @@
         <advanced>true</advanced>
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
-        <collection>sn_contingent_mgmt_contingent_request</collection>
+        <collection>sn_contingent_mgmt_contingent_task</collection>
         <condition/>
         <description/>
         <execute_function>false</execute_function>
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Populate company name by owner</name>
+        <name>Assign contingent tasks automatically</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -30,33 +30,37 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	// Add your code here
-	if (current.contract_owner) {
-        var referencedRecord = new GlideRecord('sn_contingent_mgmt_contract_owner'); 
-        if (referencedRecord.get(current.contract_owner)) {
-            current.u_company_name = referencedRecord.getValue('company_name');
-        }
-    } else {
-        current.u_company_name = null; 
-    }
+	//current.assigned_to = current.parent.contract_owner;
+	var gr = new GlideRecord('sn_contingent_mgmt_contingent_request');
+	var par_sys_id = current.getValue('parent');
+	if(gr.get(par_sys_id)){
+		var contract_owner_sys_id = gr.getValue('contract_owner');
+		gs.info('contract owner record sys_id'+contract_owner_sys_id);
+		var gr1 = new GlideRecord('sn_contingent_mgmt_contract_owner');
+		if(gr1.get(contract_owner_sys_id)){
+			var owner_name1 = gr1.owner_name;
+			current.assigned_to = owner_name1;
+		}
+	}
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-12-20 14:36:27</sys_created_on>
+        <sys_created_on>2023-12-21 05:43:27</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>fd70b0e493d7f11098002763b189187d</sys_id>
-        <sys_mod_count>9</sys_mod_count>
-        <sys_name>Populate company name by owner</sys_name>
+        <sys_id>716144b493dbf11098002763b1891815</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>Assign contingent tasks automatically</sys_name>
         <sys_overrides/>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
-        <sys_update_name>sys_script_fd70b0e493d7f11098002763b189187d</sys_update_name>
+        <sys_update_name>sys_script_716144b493dbf11098002763b1891815</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-12-21 06:28:34</sys_updated_on>
+        <sys_updated_on>2023-12-21 06:28:17</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=fd70b0e493d7f11098002763b189187d"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=716144b493dbf11098002763b1891815"/>
 </record_update>

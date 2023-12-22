@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>false</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>true</advanced>
+        <condition/>
+        <description>Allow create for state in sn_contingent_mgmt_contingent_request, for users with roles (sn_contingent_mgmt.admin, sn_contingent_mgmt.contingent_hiring_manager).</description>
+        <local_or_existing>Local</local_or_existing>
+        <name>sn_contingent_mgmt_contingent_request.state</name>
+        <operation display_value="create">create</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-22 08:19:39</sys_created_on>
+        <sys_id>05fe2d859313351098002763b189182c</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>sn_contingent_mgmt_contingent_request.state</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sys_security_acl_05fe2d859313351098002763b189182c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-22 09:01:31</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</application>
+        <file_path/>
+        <instance_id>bc9385ac01033110958ba072f6c3fb17</instance_id>
+        <instance_name>glide_db_dump</instance_name>
+        <name>sys_security_acl_05fe2d859313351098002763b189182c</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>false</active><admin_overrides>true</admin_overrides><advanced>true</advanced><condition/><description>Allow create for state in sn_contingent_mgmt_contingent_request, for users with roles (sn_contingent_mgmt.admin, sn_contingent_mgmt.contingent_hiring_manager).</description><local_or_existing>Local</local_or_existing><name>sn_contingent_mgmt_contingent_request.state</name><operation display_value="create">create</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-12-22 08:19:39</sys_created_on><sys_id>05fe2d859313351098002763b189182c</sys_id><sys_mod_count>6</sys_mod_count><sys_name>sn_contingent_mgmt_contingent_request.state</sys_name><sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package><sys_policy/><sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope><sys_update_name>sys_security_acl_05fe2d859313351098002763b189182c</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-12-22 09:01:31</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>-1299389876</payload_hash>
+        <record_name>sn_contingent_mgmt_contingent_request.state</record_name>
+        <reverted_from/>
+        <source>cd44af509353f11098002763b1891828</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-22 09:01:31</sys_created_on>
+        <sys_id>ff98f1459353351098002763b18918c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18c90c2224b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-22 09:01:31</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>b798f1451453351010936d8d693336c1</update_guid>
+        <update_guid_history>b798f1451453351010936d8d693336c1:-1299389876,3e8871454c533510b1dd3e3256368636:-1746920173,b9783d053c533510e281e84a4d06cdab:1373370347,6682710d2b1335105f160fda43f32a39:607764132,44d0f9495a133510a5028de8d303d39d:1373370347,ad90b5492213351058cf7b2b88bee839:607764132,6e0f61c5c3133510a2e77f4fc4894544:1373370347</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-22 09:03:00</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>5fbf88ed9f8448dcb2aebbcf6488fdb1</sys_id>
+        <sys_metadata>05fe2d859313351098002763b189182c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sn_contingent_mgmt_contingent_request.state</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_parent display_value="sn_contingent_mgmt_contingent_request">35d3eb509353f11098002763b1891878</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_scope_delete display_value="">55984a8d09064820bdf894d2ffe4f704</sys_scope_delete>
+        <sys_update_name>sys_security_acl_05fe2d859313351098002763b189182c</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_05fe2d859313351098002763b189182c">ff98f1459353351098002763b18918c1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-22 09:03:00</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

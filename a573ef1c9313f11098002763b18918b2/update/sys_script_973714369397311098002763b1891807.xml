@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sn_contingent_mgmt_contract_worker</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Check on contingent worker record</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+    var userSysId = current.worker_name.toString();
+    var userGR = new GlideRecord('sys_user');
+    if (userGR.get(userSysId)) {
+        var referencedSysId = userGR.getUniqueValue();
+        gs.info('Sys ID of the referenced user: ' + referencedSysId);
+
+        var userId = userSysId; 
+        var roleName = 'sn_contingent_mgmt.contingent_worker'; 
+        var userHasRole = new GlideRecord('sys_user_has_role');
+		
+        userHasRole.addQuery('user', userId);
+        userHasRole.addQuery('role.name', roleName);
+        userHasRole.query();
+
+        // Check if any records were found
+        if (userHasRole.next()) {
+            // User has the specified role
+            gs.info('User has the role: ' + roleName);
+        } else {
+            // User does not have the specified role
+			current.setAbortAction(true);
+			gs.addErrorMessage("Selected user does not have the worker role!");
+            gs.info('User does not have the role: ' + roleName);
+        }
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-27 12:27:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>973714369397311098002763b1891807</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Check on contingent worker record</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sys_script_973714369397311098002763b1891807</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-27 12:53:08</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=973714369397311098002763b1891807"/>
+</record_update>

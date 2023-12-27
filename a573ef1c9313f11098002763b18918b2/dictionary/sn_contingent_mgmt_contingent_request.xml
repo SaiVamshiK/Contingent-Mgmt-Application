@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="e1d3eb509353f11098002763b1891875" extends="task" label="Contingent Request" max_length="40" name="sn_contingent_mgmt_contingent_request" type="collection">
+        <element attributes="encode_utf8=false" label="Manager" max_length="32" name="contingent_mgr" read_only="true" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Contract description" max_length="200" name="contract_description" type="string"/>
-        <element attributes="encode_utf8=false" label="Contract manager" max_length="32" name="contract_manager" read_only="true" reference="sys_user" type="reference"/>
         <element attributes="encode_utf8=false" label="Contract owner" mandatory="true" max_length="32" name="contract_owner" reference="sn_contingent_mgmt_contract_owner" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Contract title" mandatory="true" max_length="40" name="contract_title" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="End date" mandatory="true" max_length="40" name="end_date" type="glide_date_time"/>

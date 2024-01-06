@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-27 11:47:02</sys_created_on>
+        <sys_id>b74e88f69357311098002763b1891873</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sn_contingent_mgmt_contract_worker.sn_contingent_mgmt.contingent_owner</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_security_acl display_value="sn_contingent_mgmt_contract_worker">7f2c04369357311098002763b1891838</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_b74e88f69357311098002763b1891873</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-27 11:47:02</sys_updated_on>
+        <sys_user_role display_value="sn_contingent_mgmt.contingent_owner" name="sn_contingent_mgmt.contingent_owner">7b70fb949393f11098002763b18918fa</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</application>
+        <file_path/>
+        <instance_id>bc9385ac01033110958ba072f6c3fb17</instance_id>
+        <instance_name>glide_db_dump</instance_name>
+        <name>sys_security_acl_role_b74e88f69357311098002763b1891873</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-12-27 11:47:02</sys_created_on><sys_id>b74e88f69357311098002763b1891873</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sn_contingent_mgmt_contract_worker.sn_contingent_mgmt.contingent_owner</sys_name><sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package><sys_policy/><sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope><sys_security_acl display_value="sn_contingent_mgmt_contract_worker">7f2c04369357311098002763b1891838</sys_security_acl><sys_update_name>sys_security_acl_role_b74e88f69357311098002763b1891873</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-12-27 11:47:02</sys_updated_on><sys_user_role display_value="sn_contingent_mgmt.contingent_owner" name="sn_contingent_mgmt.contingent_owner">7b70fb949393f11098002763b18918fa</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>1409363355</payload_hash>
+        <record_name>sn_contingent_mgmt_contract_worker.sn_contingent_mgmt.contingent_owner</record_name>
+        <reverted_from/>
+        <source>765ccf2293d3311098002763b1891879</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-27 11:47:02</sys_created_on>
+        <sys_id>bc7e0cf69357311098002763b18918cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18cab19770f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-27 11:47:02</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>b07e0cf6a15731104cc8a88ee69e0bcc</update_guid>
+        <update_guid_history>b07e0cf6a15731104cc8a88ee69e0bcc:1409363355</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="sn_contingent_mgmt_contract_worker.sn_contingent_mgmt.contingent_owner">674d86f193abf11098002763b1891840</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-06 04:43:02</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>341043794bd7496f92da0dd584020079</sys_id>
+        <sys_metadata>b74e88f69357311098002763b1891873</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sn_contingent_mgmt_contract_worker.sn_contingent_mgmt.contingent_owner</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_parent display_value="sn_contingent_mgmt_contract_worker">7f2c04369357311098002763b1891838</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_scope_delete display_value="">55984a8d09064820bdf894d2ffe4f704</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_b74e88f69357311098002763b1891873</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_b74e88f69357311098002763b1891873">bc7e0cf69357311098002763b18918cc</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-06 04:43:02</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

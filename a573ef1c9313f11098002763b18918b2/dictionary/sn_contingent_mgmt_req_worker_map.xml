@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="dc209af593abf11098002763b189182e" label="Req_Worker_Map" max_length="40" name="sn_contingent_mgmt_req_worker_map" type="collection">
+        <element label="Contingent Request" max_length="32" name="contingent_request" reference="sn_contingent_mgmt_contingent_request" type="reference"/>
+        <element label="Contract Worker" max_length="32" name="contract_worker" reference="sn_contingent_mgmt_contract_worker" type="reference"/>
+        <index name="index">
+            <element name="contingent_request"/>
+        </index>
+        <index name="index2">
+            <element name="contract_worker"/>
+        </index>
+    </element>
+</database>

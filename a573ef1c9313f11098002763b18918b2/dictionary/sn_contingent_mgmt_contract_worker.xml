@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="0f1b44b29357311098002763b1891800" label="Contract Worker" max_length="40" name="sn_contingent_mgmt_contract_worker" type="collection">
+        <element label="Contingent Request" max_length="32" name="contingent_request" read_only="true" reference="sn_contingent_mgmt_contingent_request" type="reference"/>
+        <element label="Contingent Request Manager" max_length="32" name="contingent_request_manager" reference="sys_user" type="reference"/>
         <element label="Contract Owner" max_length="32" name="contract_owner" read_only="true" reference="sn_contingent_mgmt_contract_owner" type="reference"/>
         <element choice="1" label="Employment status" max_length="40" name="employment_status" type="choice">
             <choice>
@@ -7,12 +9,20 @@
                 <element inactive_on_update="false" label="Unemployed" value="unemployed"/>
             </choice>
         </element>
+        <element label="End date" max_length="40" name="end_date" read_only="true" type="glide_date_time"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Start date" max_length="40" name="start_date" read_only="true" type="glide_date_time"/>
         <element label="Worker Name" mandatory="true" max_length="32" name="worker_name" reference="sys_user" type="reference"/>
         <index name="index">
-            <element name="contract_owner"/>
+            <element name="contingent_request"/>
         </index>
         <index name="index2">
+            <element name="contingent_request_manager"/>
+        </index>
+        <index name="index3">
+            <element name="contract_owner"/>
+        </index>
+        <index name="index4">
             <element name="worker_name"/>
         </index>
     </element>

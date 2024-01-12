@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Populate contingent request in req_work</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    var collectionID = getParameterValue('sysparm_collectionID');
+
+    // Check if the parameter has a value
+    if (collectionID) {
+		g_form.setValue('contingent_request', collectionID);
+		g_form.setReadOnly('contingent_request', true);
+    } else {
+        alert('No value got');
+    }
+    
+}
+
+function getParameterValue(name) {
+    var url = top.location.href;
+    var value = new URLSearchParams(url).get(name);
+    if (value) {
+        return value;
+    }
+    if (!value) {
+        var gUrl = new GlideURL();
+        gUrl.setFromCurrent();
+        value = gUrl.getParam("sysparm_collectionID");
+        return value;
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-12 05:01:52</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>fefa4d3393e3b51098002763b18918de</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Populate contingent request in req_work</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sys_script_client_fefa4d3393e3b51098002763b18918de</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-12 05:35:02</sys_updated_on>
+        <table>sn_contingent_mgmt_req_worker_map</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

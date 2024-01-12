@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Populate parent contingent request</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    //Type appropriate comment here, and begin script below
+    // var parentContingentRequest = g_form.getFormParameter('sysparm_parent');
+	// g_form.addInfoMessage('PARENT: ' + parentContingentRequest);
+	var currentURL = window.location.href;
+	g_form.addInfoMessage('hello');
+	g_form.addInfoMessage('url:'+currentURL);
+	var sysIdIndex = currentURL.indexOf("sysparm_collectionID%3D");
+
+    // If sys_id is found in the URL
+    if (sysIdIndex !== -1) {
+        // Extract the sys_id value
+        var sysId = currentURL.substring(sysIdIndex + 7, sysIdIndex + 39);
+		g_form.addInfoMessage('SYS: ' + sysId);
+
+        // Set the value of the reference field in the related list form
+        g_form.setValue('contingent_request', sysId);
+    } 
+	g_form.addInfoMessage('PARENT:' + g_form.getFormParameter('sysparm_collectionID'));
+
+    // Check if the parent "contingent_request" value is not empty
+    // if (parentContingentRequest) {
+    //     // Set the value of "contingent_request" in the related list form
+    //     g_form.setValue('contingent_request', parentContingentRequest);
+    // }else{
+	// 	//g_form.setValue('contingent_request', "6daa81a793ef751098002763b1891827");
+	// }
+	// g_form.setValue('contingent_request', "6daa81a793ef751098002763b1891827");
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-12 04:24:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e05241f393a3b51098002763b1891867</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Populate parent contingent request</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sys_script_client_e05241f393a3b51098002763b1891867</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-12 04:52:35</sys_updated_on>
+        <table>sn_contingent_mgmt_req_worker_map</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</application>
+        <file_path/>
+        <instance_id>bc9385ac01033110958ba072f6c3fb17</instance_id>
+        <instance_name>glide_db_dump</instance_name>
+        <name>sys_script_client_e05241f393a3b51098002763b1891867</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Populate parent contingent request&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+    //Type appropriate comment here, and begin script below
+    // var parentContingentRequest = g_form.getFormParameter('sysparm_parent');
+	// g_form.addInfoMessage('PARENT: ' + parentContingentRequest);
+	var currentURL = window.location.href;
+	g_form.addInfoMessage('hello');
+	g_form.addInfoMessage('url:'+currentURL);
+	var sysIdIndex = currentURL.indexOf("sysparm_collectionID%3D");
+
+    // If sys_id is found in the URL
+    if (sysIdIndex !== -1) {
+        // Extract the sys_id value
+        var sysId = currentURL.substring(sysIdIndex + 7, sysIdIndex + 39);
+		g_form.addInfoMessage('SYS: ' + sysId);
+
+        // Set the value of the reference field in the related list form
+        g_form.setValue('contingent_request', sysId);
+    } 
+	g_form.addInfoMessage('PARENT:' + g_form.getFormParameter('sysparm_collectionID'));
+
+    // Check if the parent "contingent_request" value is not empty
+    // if (parentContingentRequest) {
+    //     // Set the value of "contingent_request" in the related list form
+    //     g_form.setValue('contingent_request', parentContingentRequest);
+    // }else{
+	// 	//g_form.setValue('contingent_request', "6daa81a793ef751098002763b1891827");
+	// }
+	// g_form.setValue('contingent_request', "6daa81a793ef751098002763b1891827");
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-12 04:24:57&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;e05241f393a3b51098002763b1891867&lt;/sys_id&gt;&lt;sys_mod_count&gt;12&lt;/sys_mod_count&gt;&lt;sys_name&gt;Populate parent contingent request&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt"&gt;a573ef1c9313f11098002763b18918b2&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Contingent Mgmt Application"&gt;a573ef1c9313f11098002763b18918b2&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_e05241f393a3b51098002763b1891867&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-12 04:52:35&lt;/sys_updated_on&gt;&lt;table&gt;sn_contingent_mgmt_req_worker_map&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1587837766</payload_hash>
+        <record_name>Populate parent contingent request</record_name>
+        <reverted_from/>
+        <source>765ccf2293d3311098002763b1891879</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-12 04:52:35</sys_created_on>
+        <sys_id>ca09c97f93a3b51098002763b1891868</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18cfc03c8990000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-12 04:52:35</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>8209c97f03a3b510ae4125fa37befd68</update_guid>
+        <update_guid_history>8209c97f03a3b510ae4125fa37befd68:-1587837766,4278493fe5a3b510368bf5511ffd4208:1457509485,70584dfb69a3b510b744658fe9ae4150:1682243069,a9c749fb66a3b510557daa82cae21880:-131766166,eea7c5fb17a3b510d68533929b275ba6:-724881937,4c46857bd5a3b5104eb07377565e589b:-229296930,de55cdf725a3b510ac3aea77233d7763:1790071230,f12581f71da3b510631078bbab32ddfa:-596141613,c1b4c9b798a3b5105c18912a0d5b4c3e:1566517154,c78489b749a3b510f1ced80f7996041c:918104866,92444d77e6a3b510b487211ffef9980b:1211068206,e7d2cdf307a3b510154e2d400aa4b299:-1204950391,95b249f337a3b510e1d313c549101075:1969275834</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-12 04:56:25</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>4423385357694498b1af47e9c8da4039</sys_id>
+        <sys_metadata>e05241f393a3b51098002763b1891867</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Populate parent contingent request</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_parent display_value="Req_Worker_Map">dc209af593abf11098002763b189182e</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_scope_delete display_value="">55984a8d09064820bdf894d2ffe4f704</sys_scope_delete>
+        <sys_update_name>sys_script_client_e05241f393a3b51098002763b1891867</sys_update_name>
+        <sys_update_version display_value="sys_script_client_e05241f393a3b51098002763b1891867">ca09c97f93a3b51098002763b1891868</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-12 04:56:25</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

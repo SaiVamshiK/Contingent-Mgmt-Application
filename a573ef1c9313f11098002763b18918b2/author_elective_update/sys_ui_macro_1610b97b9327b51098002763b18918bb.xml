@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_macro">
+    <sys_ui_macro action="DELETE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>CustomReferenceSearch</name>
+        <scoped_name>sn_contingent_mgmt_CustomReferenceSearch</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-12 07:44:03</sys_created_on>
+        <sys_id>1610b97b9327b51098002763b18918bb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CustomReferenceSearch</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sys_ui_macro_1610b97b9327b51098002763b18918bb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-12 07:44:03</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</application>
+        <file_path/>
+        <instance_id>bc9385ac01033110958ba072f6c3fb17</instance_id>
+        <instance_name>glide_db_dump</instance_name>
+        <name>sys_ui_macro_1610b97b9327b51098002763b18918bb</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ui_macro"&gt;&lt;sys_ui_macro action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;category&gt;general&lt;/category&gt;&lt;description/&gt;&lt;media_type/&gt;&lt;name&gt;CustomReferenceSearch&lt;/name&gt;&lt;scoped_name&gt;sn_contingent_mgmt_CustomReferenceSearch&lt;/scoped_name&gt;&lt;sys_class_name&gt;sys_ui_macro&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-12 07:44:03&lt;/sys_created_on&gt;&lt;sys_id&gt;1610b97b9327b51098002763b18918bb&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;CustomReferenceSearch&lt;/sys_name&gt;&lt;sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt"&gt;a573ef1c9313f11098002763b18918b2&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Contingent Mgmt Application"&gt;a573ef1c9313f11098002763b18918b2&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_macro_1610b97b9327b51098002763b18918bb&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-12 07:44:03&lt;/sys_updated_on&gt;&lt;xml&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null"&gt;
+
+&lt;/j:jelly&gt;]]&gt;&lt;/xml&gt;&lt;/sys_ui_macro&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1674113984</payload_hash>
+        <record_name>CustomReferenceSearch</record_name>
+        <reverted_from/>
+        <source>765ccf2293d3311098002763b1891879</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-12 07:44:03</sys_created_on>
+        <sys_id>a540bd7b9327b51098002763b189184e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18cfca0c2a70000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-12 07:44:03</sys_updated_on>
+        <type>Macro</type>
+        <update_guid>2140717bdd27b510beb36162e83d15ea</update_guid>
+        <update_guid_history>2140717bdd27b510beb36162e83d15ea:-1674113984</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-12 07:44:07</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_macro">sys_ui_macro</sys_db_object>
+        <sys_id>16437bc89c154432851d71f1dd1a87a9</sys_id>
+        <sys_metadata>1610b97b9327b51098002763b18918bb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CustomReferenceSearch</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_scope_delete display_value="">55984a8d09064820bdf894d2ffe4f704</sys_scope_delete>
+        <sys_update_name>sys_ui_macro_1610b97b9327b51098002763b18918bb</sys_update_name>
+        <sys_update_version display_value="sys_ui_macro_1610b97b9327b51098002763b18918bb">a540bd7b9327b51098002763b189184e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-12 07:44:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

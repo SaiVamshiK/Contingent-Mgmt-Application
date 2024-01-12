@@ -38,7 +38,7 @@
         <message/>
         <message_html><![CDATA[<p>${contingent_request_manager.first_name} ${contingent_request_manager.last_name},</p>
 <p>&nbsp;</p>
-<p>Your CW "${worker_name.first_name} ${worker_name.last_name}" contract is about to end. Take steps to renew it.</p>
+<p>Your CW ${worker_name.first_name} ${worker_name.last_name}'s contract is about to end (End date : ${end_date}). Take steps to renew it.</p>
 <p>&nbsp;</p>
 <p>Thank you!</p>]]></message_html>
         <message_list/>
@@ -62,7 +62,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>eb85dc6b93eb751098002763b18918a1</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Notify CWM to renew contract</sys_name>
         <sys_overrides/>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
@@ -70,7 +70,7 @@
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sysevent_email_action_eb85dc6b93eb751098002763b18918a1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-11 06:51:48</sys_updated_on>
+        <sys_updated_on>2024-01-11 08:40:57</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences">7ed0481f3b0b2200c869c2c703efc487</template>
         <type>email</type>

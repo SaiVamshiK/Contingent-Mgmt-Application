@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+
+    // Function to fetch records where the currently logged in user is the manager
+     c.fetchRecords = function () {
+        var userId = c.data.userID;
+
+        c.server.get('/api/now/table/sn_contingent_mgmt_contract_worker', {
+            params: {
+                sysparm_query: 'contingent_request_manager=' + userId
+            }
+        }).then(function (response) {
+            c.records = response.data.result;
+        });
+    };
+
+    // Initial load of records
+    c.fetchRecords();
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>renew_contracts_table</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Renew Contracts table</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    data.records = [];
+		data.userID = gs.getUserID();
+    // Query the table and set the result in the 'records' variable
+    var gr = new GlideRecord('sn_contingent_mgmt_contract_worker');
+    gr.addQuery('contingent_request_manager', gs.getUserID());
+	
+		var currentDateTime = new GlideDateTime();
+		currentDateTime.addDaysUTC(14);
+		gr.addQuery('end_date', '!=', ''); 
+		gr.addQuery('end_date', '<=', currentDateTime);
+
+    gr.query();
+		data.header = ['Worker Name','Start Date','End Date','Contingent Request Manager'];
+
+    while (gr.next()) {
+        var record = {
+            workerName: gr.worker_name.getDisplayValue(),
+            startDate: gr.start_date.getDisplayValue(),
+            endDate: gr.end_date.getDisplayValue(),
+            manager: gr.contingent_request_manager.getDisplayValue()
+        };
+        data.records.push(record);
+    }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-12 11:14:52</sys_created_on>
+        <sys_id>3d80aef3932bb51098002763b189185e</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>Renew Contracts table</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sp_widget_3d80aef3932bb51098002763b189185e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-12 12:25:36</sys_updated_on>
+        <template><![CDATA[<div>
+    <table id="contingentWorkerTable" class="table">
+        <thead>
+            <tr>
+                <th ng-repeat="col in data.header">{{col}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="record in data.records">
+                <td>{{record.workerName}}</td>
+                <td>{{record.startDate}}</td>
+                <td>{{record.endDate}}</td>
+                <td>{{record.manager}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>]]></template>
+    </sp_widget>
+</record_update>

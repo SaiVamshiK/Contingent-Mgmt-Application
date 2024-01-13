@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>sn_contingent_mgmt.Renew_contract_record</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Renew_contract_record</name>
+        <script><![CDATA[var Renew_contract_record = Class.create();
+Renew_contract_record.prototype = {
+    initialize: function() {
+    },
+
+	updateRecord: function(sys_id) {
+		gs.info('Update called');
+        // var currentDate = new Date();
+        // var newEndDate = new Date(currentDate.setDate(currentDate.getDate() + 30));
+
+        // // Execute the server script to update the record
+        // var serverUpdate = new GlideRecord('sn_contingent_mgmt_contract_worker');
+        // serverUpdate.get(sys_id);  // Retrieve the record by sys_id
+        // serverUpdate.setValue('end_date', newEndDate);  // Set the new end date
+        // serverUpdate.update();
+		gs.info('Update done');
+    },
+
+
+    type: 'Renew_contract_record'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-13 04:08:25</sys_created_on>
+        <sys_id>50e7c28893fbb51098002763b1891876</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Renew_contract_record</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sys_script_include_50e7c28893fbb51098002763b1891876</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-13 04:09:17</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</application>
+        <file_path/>
+        <instance_id>bc9385ac01033110958ba072f6c3fb17</instance_id>
+        <instance_name>glide_db_dump</instance_name>
+        <name>sys_script_include_50e7c28893fbb51098002763b1891876</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;sn_contingent_mgmt.Renew_contract_record&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;Renew_contract_record&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var Renew_contract_record = Class.create();
+Renew_contract_record.prototype = {
+    initialize: function() {
+    },
+
+	updateRecord: function(sys_id) {
+		gs.info('Update called');
+        // var currentDate = new Date();
+        // var newEndDate = new Date(currentDate.setDate(currentDate.getDate() + 30));
+
+        // // Execute the server script to update the record
+        // var serverUpdate = new GlideRecord('sn_contingent_mgmt_contract_worker');
+        // serverUpdate.get(sys_id);  // Retrieve the record by sys_id
+        // serverUpdate.setValue('end_date', newEndDate);  // Set the new end date
+        // serverUpdate.update();
+		gs.info('Update done');
+    },
+
+
+    type: 'Renew_contract_record'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-13 04:08:25&lt;/sys_created_on&gt;&lt;sys_id&gt;50e7c28893fbb51098002763b1891876&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Renew_contract_record&lt;/sys_name&gt;&lt;sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt"&gt;a573ef1c9313f11098002763b18918b2&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Contingent Mgmt Application"&gt;a573ef1c9313f11098002763b18918b2&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_50e7c28893fbb51098002763b1891876&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-13 04:09:17&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1425226062</payload_hash>
+        <record_name>Renew_contract_record</record_name>
+        <reverted_from/>
+        <source>765ccf2293d3311098002763b1891879</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-13 04:09:17</sys_created_on>
+        <sys_id>99b84ac893fbb51098002763b189184a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18d01027eae0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-13 04:09:17</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>ddb886c8fafbb51032e5b9768c883746</update_guid>
+        <update_guid_history>ddb886c8fafbb51032e5b9768c883746:-1425226062,fc884688e5fbb5105b8cb2f031edf567:1275117362</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-13 04:27:47</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>8f13282d876b4991af62442533e328f9</sys_id>
+        <sys_metadata>50e7c28893fbb51098002763b1891876</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Renew_contract_record</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_scope_delete display_value="">55984a8d09064820bdf894d2ffe4f704</sys_scope_delete>
+        <sys_update_name>sys_script_include_50e7c28893fbb51098002763b1891876</sys_update_name>
+        <sys_update_version display_value="sys_script_include_50e7c28893fbb51098002763b1891876">99b84ac893fbb51098002763b189184a</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-13 04:27:47</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

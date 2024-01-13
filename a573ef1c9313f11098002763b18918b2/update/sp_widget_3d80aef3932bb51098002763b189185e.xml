@@ -7,6 +7,7 @@
 
     // Function to fetch records where the currently logged in user is the manager
      c.fetchRecords = function () {
+				console.log('Hello'); 
         var userId = c.data.userID;
 
         c.server.get('/api/now/table/sn_contingent_mgmt_contract_worker', {
@@ -17,8 +18,16 @@
             c.records = response.data.result;
         });
     };
-
-    // Initial load of records
+		c.renewRecord = function (sysId) {
+				console.log('Sys_id : ' + sysId);
+				c.data.action = 'renewContract';
+				c.data.sysID = sysId;
+				c.server.update().then(function(){
+					c.data.action = undefined;
+					c.data.sysID = '';
+				})
+    };
+    // Initial load of records 
     c.fetchRecords();
 };]]></client_script>
         <controller_as>c</controller_as>
@@ -49,17 +58,73 @@
 		gr.addQuery('end_date', '<=', currentDateTime);
 
     gr.query();
-		data.header = ['Worker Name','Start Date','End Date','Contingent Request Manager'];
+		data.header = ['Worker Name','Start Date','End Date','Contingent Request Manager','Renew'];
 
     while (gr.next()) {
         var record = {
             workerName: gr.worker_name.getDisplayValue(),
             startDate: gr.start_date.getDisplayValue(),
             endDate: gr.end_date.getDisplayValue(),
-            manager: gr.contingent_request_manager.getDisplayValue()
+            manager: gr.contingent_request_manager.getDisplayValue(),
+						sys_id: gr.getUniqueValue()
         };
         data.records.push(record);
     }
+	
+		if(input){
+			if(input.action == 'renewContract'){
+				var sysID = input.sysID;
+				gs.info('Update called, sysID : ' + sysID);
+				var gr1 = new GlideRecord('sn_contingent_mgmt_contract_worker');
+				if(gr1.get(sysID)){
+					
+						var valueOfEndDate = gr1.getValue('end_date');
+						var currentDateStr = valueOfEndDate;
+						var currentDate = new Date(currentDateStr.replace(/-/g, '/'));
+
+						// Check if currentDate is a valid Date object
+						if (!isNaN(currentDate.getTime())) {
+								// Create a new Date object for 30 days after the current date
+								var nextDate = new Date(currentDate);
+								gs.info('Current End Date : ' + valueOfEndDate);
+								nextDate.setDate(currentDate.getDate() + 31);
+
+								// 'nextDate' now contains the date and time 30 days after 'currentDate'
+								var formattedDateStr = nextDate.toISOString().replace(/T/, ' ').replace(/\..+/, '');
+								gs.info("Next date: " + nextDate);
+								gs.info("Formated next date: " + formattedDateStr);
+								gr1.setValue('end_date',formattedDateStr);
+								gr1.update();
+								// var newEndDate = new Date(formattedDateStr);
+								// gs.info('Updating new end date : ' + newEndDate);
+						} else {
+								gs.info("Next date: " + "error");
+						}
+					
+					  
+				}
+				
+				/*
+				serverUpdate.query(function(result) {
+					if (result.next()) {
+						var currentDate = serverUpdate.getValue('end_date');
+						gs.info('Current date: ' + currentDate);
+		        var newEndDate = new Date(currentDate.setDate(currentDate.getDate() + 30));
+
+						serverUpdate.setValue('end_date', newEndDate);
+						serverUpdate.update();
+						// You can perform additional actions after the record is updated
+						console.log('Record updated successfully.');
+					} else {
+						console.error('Record not found with sys_id: ' + sysID);
+					}
+				});
+				*/
+				
+				gs.info('Update done');
+			}
+		}
+	
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -67,14 +132,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-12 11:14:52</sys_created_on>
         <sys_id>3d80aef3932bb51098002763b189185e</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>101</sys_mod_count>
         <sys_name>Renew Contracts table</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sp_widget_3d80aef3932bb51098002763b189185e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-12 12:25:36</sys_updated_on>
+        <sys_updated_on>2024-01-13 05:49:58</sys_updated_on>
         <template><![CDATA[<div>
     <table id="contingentWorkerTable" class="table">
         <thead>
@@ -88,6 +153,7 @@
                 <td>{{record.startDate}}</td>
                 <td>{{record.endDate}}</td>
                 <td>{{record.manager}}</td>
+	              <td><button class="renew-button" ng-click="c.renewRecord(record.sys_id)">Renew</button></td>
             </tr>
         </tbody>
     </table>

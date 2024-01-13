@@ -25,6 +25,7 @@
 				c.server.update().then(function(){
 					c.data.action = undefined;
 					c.data.sysID = '';
+					c.server.refresh();
 				})
     };
     // Initial load of records 
@@ -95,6 +96,7 @@
 								gs.info("Formated next date: " + formattedDateStr);
 								gr1.setValue('end_date',formattedDateStr);
 								gr1.update();
+								
 								// var newEndDate = new Date(formattedDateStr);
 								// gs.info('Updating new end date : ' + newEndDate);
 						} else {
@@ -132,14 +134,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-12 11:14:52</sys_created_on>
         <sys_id>3d80aef3932bb51098002763b189185e</sys_id>
-        <sys_mod_count>101</sys_mod_count>
+        <sys_mod_count>103</sys_mod_count>
         <sys_name>Renew Contracts table</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sp_widget_3d80aef3932bb51098002763b189185e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-13 05:49:58</sys_updated_on>
+        <sys_updated_on>2024-01-13 06:01:12</sys_updated_on>
         <template><![CDATA[<div>
     <table id="contingentWorkerTable" class="table">
         <thead>

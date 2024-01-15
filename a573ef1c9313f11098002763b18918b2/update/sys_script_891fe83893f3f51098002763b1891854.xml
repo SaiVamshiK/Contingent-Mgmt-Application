@@ -6,7 +6,7 @@
         <action_insert>true</action_insert>
         <action_query>false</action_query>
         <action_update>true</action_update>
-        <active>false</active>
+        <active>true</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Populate company name by owner</name>
+        <name>Populate owner by company name</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -27,36 +27,39 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
 
-	// Add your code here
-	if (current.contract_owner) {
-        var referencedRecord = new GlideRecord('sn_contingent_mgmt_contract_owner'); 
-        if (referencedRecord.get(current.contract_owner)) {
-            current.u_company_name = referencedRecord.getValue('company_name');
-        }
+    // Add your code here
+    if (current.u_company_name) {
+        var referencedRecord = new GlideRecord('sn_contingent_mgmt_contract_owner');
+		referencedRecord.addQuery('company_name',current.u_company_name);
+		referencedRecord.query();
+		if(referencedRecord.next()){
+			//gs.info('Hello ' + referencedRecord.getUniqueValue());
+			current.contract_owner = referencedRecord.getUniqueValue();
+		}
     } else {
-        current.u_company_name = null; 
+        current.contact_owner = null;
     }
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-12-20 14:36:27</sys_created_on>
+        <sys_created_on>2024-01-15 05:35:13</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>fd70b0e493d7f11098002763b189187d</sys_id>
-        <sys_mod_count>10</sys_mod_count>
-        <sys_name>Populate company name by owner</sys_name>
+        <sys_id>891fe83893f3f51098002763b1891854</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Populate owner by company name</sys_name>
         <sys_overrides/>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
-        <sys_update_name>sys_script_fd70b0e493d7f11098002763b189187d</sys_update_name>
+        <sys_update_name>sys_script_891fe83893f3f51098002763b1891854</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-15 05:35:19</sys_updated_on>
+        <sys_updated_on>2024-01-15 06:15:56</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=fd70b0e493d7f11098002763b189187d"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=891fe83893f3f51098002763b1891854"/>
 </record_update>

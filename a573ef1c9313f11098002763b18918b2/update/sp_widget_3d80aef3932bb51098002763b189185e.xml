@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {
+        <client_script><![CDATA[api.controller=function($scope,spModal) {
   /* widget controller */
   var c = this;
 
@@ -18,7 +18,34 @@
             c.records = response.data.result;
         });
     };
+	
+		c.showConfirmation = function(sysId) {
+        var dialogConfig = {
+            header: "Confirmation",
+            message: "Are you sure you want to renew this contract?",
+            buttons: [{
+                label: "Yes",
+                primary: true,
+                value: "yes"
+            }, {
+                label: "No",
+                primary: false,
+                value: "no"
+            }]
+        };
+				console.log('Click');
+				spModal.open(dialogConfig).then(function(response) {
+						console.log('RESPONSE ', response);
+            if (response.value === 'yes') {
+                c.renewRecord(sysId);
+            } else {
+                console.log('Renewal canceled by the user.');
+            }
+        });
+    };
+	
 		c.renewRecord = function (sysId) {
+				console.log('Renewal called');
 				console.log('Sys_id : ' + sysId);
 				c.data.action = 'renewContract';
 				c.data.sysID = sysId;
@@ -96,6 +123,17 @@
 								gs.info("Formated next date: " + formattedDateStr);
 								gr1.setValue('end_date',formattedDateStr);
 								gr1.update();
+							
+								var gr2 = new GlideRecord('sn_contingent_mgmt_contingent_request');
+								var contingentReqSysID = gr1.contingent_request;
+								gs.info('Contingent Request SysID ' + contingentReqSysID);
+								gr2.addQuery('sys_id',contingentReqSysID);
+								gr2.query();
+								if(gr2.next()){
+									gr2.end_date = formattedDateStr;
+									gr2.update();
+									gs.info('Contingent Request UPDATED');
+								}
 								
 								// var newEndDate = new Date(formattedDateStr);
 								// gs.info('Updating new end date : ' + newEndDate);
@@ -134,14 +172,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-12 11:14:52</sys_created_on>
         <sys_id>3d80aef3932bb51098002763b189185e</sys_id>
-        <sys_mod_count>103</sys_mod_count>
+        <sys_mod_count>117</sys_mod_count>
         <sys_name>Renew Contracts table</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sp_widget_3d80aef3932bb51098002763b189185e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-13 06:01:12</sys_updated_on>
+        <sys_updated_on>2024-01-15 07:14:20</sys_updated_on>
         <template><![CDATA[<div>
     <table id="contingentWorkerTable" class="table">
         <thead>
@@ -155,7 +193,7 @@
                 <td>{{record.startDate}}</td>
                 <td>{{record.endDate}}</td>
                 <td>{{record.manager}}</td>
-	              <td><button class="renew-button" ng-click="c.renewRecord(record.sys_id)">Renew</button></td>
+	              <td><button class="renew-button" ng-click="c.showConfirmation(record.sys_id)">Renew</button></td>
             </tr>
         </tbody>
     </table>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Restrict state choice list field</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    //Type appropriate comment here, and begin script below
+    var userRoles = g_user.roles;
+
+    // Get the choice list field element
+    var choiceListField = g_form.getControl('state'); // Replace with your actual choice list field name
+
+    // Define the choices based on user role
+    var choices = [];
+
+    if (userRoles.indexOf('sn_contingent_mgmt.contingent_hiring_manager') !== -1) {
+        // Admin role-specific choices
+        choices = [1, 2];
+    } else {
+        // Other role-specific choices
+        choices = [3, 7];
+    }
+
+    // Set the choices for the choice list field
+    g_form.clearOptions('state'); // Replace with your actual choice list field name
+    g_form.addOptions('state', choices, choices);
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-15 04:55:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c375a0b893b3f51098002763b18918fd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Restrict state choice list field</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sys_script_client_c375a0b893b3f51098002763b18918fd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-15 04:56:58</sys_updated_on>
+        <table>sn_contingent_mgmt_contingent_request</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</application>
+        <file_path/>
+        <instance_id>bc9385ac01033110958ba072f6c3fb17</instance_id>
+        <instance_name>glide_db_dump</instance_name>
+        <name>sys_script_client_c375a0b893b3f51098002763b18918fd</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Restrict state choice list field&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+    //Type appropriate comment here, and begin script below
+    var userRoles = g_user.roles;
+
+    // Get the choice list field element
+    var choiceListField = g_form.getControl('state'); // Replace with your actual choice list field name
+
+    // Define the choices based on user role
+    var choices = [];
+
+    if (userRoles.indexOf('sn_contingent_mgmt.contingent_hiring_manager') !== -1) {
+        // Admin role-specific choices
+        choices = [1, 2];
+    } else {
+        // Other role-specific choices
+        choices = [3, 7];
+    }
+
+    // Set the choices for the choice list field
+    g_form.clearOptions('state'); // Replace with your actual choice list field name
+    g_form.addOptions('state', choices, choices);
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-15 04:55:30&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;c375a0b893b3f51098002763b18918fd&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Restrict state choice list field&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt"&gt;a573ef1c9313f11098002763b18918b2&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Contingent Mgmt Application"&gt;a573ef1c9313f11098002763b18918b2&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_c375a0b893b3f51098002763b18918fd&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-15 04:56:58&lt;/sys_updated_on&gt;&lt;table&gt;sn_contingent_mgmt_contingent_request&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2145325047</payload_hash>
+        <record_name>Restrict state choice list field</record_name>
+        <reverted_from/>
+        <source>765ccf2293d3311098002763b1891879</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-15 04:56:58</sys_created_on>
+        <sys_id>afc6e03c93b3f51098002763b1891824</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18d0b7ae10e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-15 04:56:58</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>67c6e03c77b3f510d4653889ccadf724</update_guid>
+        <update_guid_history>67c6e03c77b3f510d4653889ccadf724:2145325047,9fb62cf8f3b3f510821863c172c16342:1409892621,8e76a0f8e0b3f510599925f2c01264c6:1131845427</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-15 04:57:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>10a44ab3265441c8829a30144f8884b9</sys_id>
+        <sys_metadata>c375a0b893b3f51098002763b18918fd</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Restrict state choice list field</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_parent display_value="Contingent Request">e1d3eb509353f11098002763b1891875</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_scope_delete display_value="">55984a8d09064820bdf894d2ffe4f704</sys_scope_delete>
+        <sys_update_name>sys_script_client_c375a0b893b3f51098002763b18918fd</sys_update_name>
+        <sys_update_version display_value="sys_script_client_c375a0b893b3f51098002763b18918fd">afc6e03c93b3f51098002763b1891824</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-15 04:57:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

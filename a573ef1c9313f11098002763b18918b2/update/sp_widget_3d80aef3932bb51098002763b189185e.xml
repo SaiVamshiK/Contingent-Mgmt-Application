@@ -19,10 +19,47 @@
         });
     };
 	
+		c.showConfirmationForRenewalRequest = function(sysId){
+			var dialogConfig = {
+            header: "Confirmation",
+            message: "Are you sure you want to request for renewal of this contract?",
+            buttons: [{
+                label: "Yes",
+                primary: true,
+                value: "yes"
+            }, {
+                label: "No",
+                primary: false,
+                value: "no"
+            }]
+        };
+				console.log('Click for request for renewal');
+				spModal.open(dialogConfig).then(function(response) {
+						console.log('RESPONSE ', response);
+            if (response.value === 'yes') {
+                c.requestRenewalRecord(sysId);
+            } else {
+                console.log('Renewal request cancelled by the hiring manager.');
+            }
+        });
+		}
+	
+		c.requestRenewalRecord = function (sysId) {
+				console.log('Renewal called');
+				console.log('Sys_id : ' + sysId);
+				c.data.action = 'requestRenewContract';
+				c.data.sysID = sysId;
+				c.server.update().then(function(){
+					c.data.action = undefined;
+					c.data.sysID = '';
+					c.server.refresh();
+				})
+    };
+	
 		c.showConfirmation = function(sysId) {
         var dialogConfig = {
             header: "Confirmation",
-            message: "Are you sure you want to renew this contract?",
+            message: "Are you sure you want to request for renewal of this contract?",
             buttons: [{
                 label: "Yes",
                 primary: true,
@@ -79,6 +116,7 @@
     // Query the table and set the result in the 'records' variable
     var gr = new GlideRecord('sn_contingent_mgmt_contract_worker');
     gr.addQuery('contingent_request_manager', gs.getUserID());
+		gr.addQuery('isrenewalrequested','no');
 	
 		var currentDateTime = new GlideDateTime();
 		currentDateTime.addDaysUTC(14);
@@ -86,7 +124,7 @@
 		gr.addQuery('end_date', '<=', currentDateTime);
 
     gr.query();
-		data.header = ['Worker Name','Start Date','End Date','Contingent Request Manager','Renew'];
+		data.header = ['Worker Name','Start Date','End Date','Contingent Request Manager','Request Renewal'];
 
     while (gr.next()) {
         var record = {
@@ -163,23 +201,72 @@
 				
 				gs.info('Update done');
 			}
+			if(input.action == 'requestRenewContract'){
+				var contractWorkerSysID = input.sysID;
+				console.log('Contract Worker Record SYSID: ' + contractWorkerSysID);
+				// this is the sysId of a record in the contract worker table.
+				var gr3 = new GlideRecord('sn_contingent_mgmt_contract_worker');
+				gr3.addQuery('sys_id',contractWorkerSysID);
+				gr3.query();
+				if(gr3.next()){
+					gr3.isrenewalrequested = 'requested';
+					gr3.update();
+					console.log('REQUESTED FOR RENEWAL');
+				}
+				
+				/*
+				if(gr3.next()){
+					var contingentReqSYSId = gr3.getValue('contingent_request');
+					console.log('Contingent RequestSYSID : ' + contingentReqSYSId);
+					var gr4 = new GlideRecord('sn_contingent_mgmt_contingent_request');
+					gr4.addQuery('sys_id',contingentReqSYSId);
+					gr4.query();
+					if(gr4.next()){
+						console.log('Hii');
+						console.log('NUmber : '+gr4.number);
+						gr4.isrenewalrequested = 'requested';
+						gr4.update();
+						console.log('REQUESTED FOR RENEWAL');
+					}
+				}
+				*/
+			}
 		}
 	
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-12 11:14:52</sys_created_on>
         <sys_id>3d80aef3932bb51098002763b189185e</sys_id>
-        <sys_mod_count>117</sys_mod_count>
+        <sys_mod_count>128</sys_mod_count>
         <sys_name>Renew Contracts table</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sp_widget_3d80aef3932bb51098002763b189185e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-15 07:14:20</sys_updated_on>
+        <sys_updated_on>2024-01-15 10:50:39</sys_updated_on>
         <template><![CDATA[<div>
     <table id="contingentWorkerTable" class="table">
         <thead>
@@ -193,7 +280,7 @@
                 <td>{{record.startDate}}</td>
                 <td>{{record.endDate}}</td>
                 <td>{{record.manager}}</td>
-	              <td><button class="renew-button" ng-click="c.showConfirmation(record.sys_id)">Renew</button></td>
+	              <td><button class="renew-button" ng-click="c.showConfirmationForRenewalRequest(record.sys_id)">Renew</button></td>
             </tr>
         </tbody>
     </table>

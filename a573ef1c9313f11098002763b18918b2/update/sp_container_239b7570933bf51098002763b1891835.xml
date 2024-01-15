@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Approve Renewals Page - Container 1</name>
+        <order>1</order>
+        <semantic_tag/>
+        <sp_page display_value="approve_renewals_page">b3993d7c93f7f51098002763b1891830</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-15 11:07:31</sys_created_on>
+        <sys_id>239b7570933bf51098002763b1891835</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Approve Renewals Page - Container 1</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sp_container_239b7570933bf51098002763b1891835</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-15 11:07:31</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+</record_update>

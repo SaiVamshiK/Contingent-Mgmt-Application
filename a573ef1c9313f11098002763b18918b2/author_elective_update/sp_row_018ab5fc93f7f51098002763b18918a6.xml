@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_row">
+    <sp_row action="DELETE">
+        <class_name/>
+        <order>1</order>
+        <semantic_tag/>
+        <sp_column/>
+        <sp_container display_value="Approve Renewals Page - Container 1">8a4ab1fc93f7f51098002763b1891887</sp_container>
+        <sys_class_name>sp_row</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-15 11:02:43</sys_created_on>
+        <sys_id>018ab5fc93f7f51098002763b18918a6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_update_name>sp_row_018ab5fc93f7f51098002763b18918a6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-15 11:02:43</sys_updated_on>
+    </sp_row>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</application>
+        <file_path/>
+        <instance_id>bc9385ac01033110958ba072f6c3fb17</instance_id>
+        <instance_name>glide_db_dump</instance_name>
+        <name>sp_row_018ab5fc93f7f51098002763b18918a6</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_row"><sp_row action="INSERT_OR_UPDATE"><class_name/><order>1</order><semantic_tag/><sp_column/><sp_container display_value="Approve Renewals Page - Container 1">8a4ab1fc93f7f51098002763b1891887</sp_container><sys_class_name>sp_row</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-01-15 11:02:43</sys_created_on><sys_id>018ab5fc93f7f51098002763b18918a6</sys_id><sys_mod_count>0</sys_mod_count><sys_name>1</sys_name><sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package><sys_policy/><sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope><sys_update_name>sp_row_018ab5fc93f7f51098002763b18918a6</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-01-15 11:02:43</sys_updated_on></sp_row></record_update>]]></payload>
+        <payload_hash>1991999787</payload_hash>
+        <record_name>1</record_name>
+        <reverted_from/>
+        <source>765ccf2293d3311098002763b1891879</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-15 11:02:43</sys_created_on>
+        <sys_id>c58ab5fc93f7f51098002763b18918a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18d0cc9b8df0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-15 11:02:43</sys_updated_on>
+        <type>Row</type>
+        <update_guid>c98ab5fcf4f7f51034e88bf85fab63a7</update_guid>
+        <update_guid_history>c98ab5fcf4f7f51034e88bf85fab63a7:1991999787</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="1">1a9a7dfc93f7f51098002763b18918ab</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-01-15 11:03:04</sys_created_on>
+        <sys_db_object display_value="" name="sp_row">sp_row</sys_db_object>
+        <sys_id>4bf92d4d441d4bc082347e66b3313640</sys_id>
+        <sys_metadata>018ab5fc93f7f51098002763b18918a6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
+        <sys_scope_delete display_value="">55984a8d09064820bdf894d2ffe4f704</sys_scope_delete>
+        <sys_update_name>sp_row_018ab5fc93f7f51098002763b18918a6</sys_update_name>
+        <sys_update_version display_value="sp_row_018ab5fc93f7f51098002763b18918a6">c58ab5fc93f7f51098002763b18918a8</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-01-15 11:03:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

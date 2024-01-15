@@ -10,6 +10,14 @@
             </choice>
         </element>
         <element label="End date" max_length="40" name="end_date" read_only="true" type="glide_date_time"/>
+        <element choice="3" default="no" label="isRenewalRequested" max_length="40" name="isrenewalrequested" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Approved" value="approved"/>
+                <element inactive_on_update="false" label="No" value="no"/>
+                <element inactive_on_update="false" label="Rejected" value="rejected"/>
+                <element inactive_on_update="false" label="Requested" value="requested"/>
+            </choice>
+        </element>
         <element default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element label="Start date" max_length="40" name="start_date" read_only="true" type="glide_date_time"/>
         <element attributes="ignore_filter_on_new=false,ref_ac_columns=true" display="true" label="Worker Name" mandatory="true" max_length="32" name="worker_name" reference="sys_user" type="reference"/>

@@ -6,6 +6,7 @@
   var c = this;
 	
 	c.showConfirmationReject = function(sysId) {
+				c.rejectReason = "Hard coded reason for rejection!";
         var dialogConfig = {
             header: "Confirmation",
             message: "Are you sure you want to reject this request for renewal of contract?",
@@ -23,17 +24,18 @@
 				spModal.open(dialogConfig).then(function(response) {
 						console.log('RESPONSE ', response);
             if (response.value === 'yes') {
-                c.rejectRecord(sysId);
+                c.rejectRecord(sysId,c.rejectReason);
             } else {
                 console.log('Renewal approval canceled by the contingent owner.');
             }
         });
     };
 	
-	c.rejectRecord = function (sysId) {
+	c.rejectRecord = function (sysId,reasonForRejection) {
 				console.log('Reject Renewal called');
-				console.log('Sys_id : ' + sysId);
+				console.log('REASON : ' + reasonForRejection);
 				c.data.action = 'rejectRenewContract';
+				c.data.reasonForTheRejection = reasonForRejection;
 				c.data.sysID = sysId;
 				c.server.update().then(function(){
 					c.data.action = undefined;
@@ -168,9 +170,12 @@
 			}
 			if(input.action == 'rejectRenewContract'){
 				var rejectsysID = input.sysID;
+				console.log('REJECTION REASEON ' + data.reasonForTheRejection);
 				var gr3 = new GlideRecord('sn_contingent_mgmt_contract_worker');
 				if(gr3.get(rejectsysID)){
 					gr3.isrenewalrequested = 'rejected';
+					
+					gr3.rejection_comments = input.reasonForTheRejection;
 					gr3.update();
 				}
 			}
@@ -200,14 +205,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-15 11:09:15</sys_created_on>
         <sys_id>b7bbbd70933bf51098002763b18918d1</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>34</sys_mod_count>
         <sys_name>Approve Renewals table</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sp_widget_b7bbbd70933bf51098002763b18918d1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-15 15:10:35</sys_updated_on>
+        <sys_updated_on>2024-01-15 16:30:32</sys_updated_on>
         <template><![CDATA[<div>
   <h1>Renewals Approval Page</h1>
   	<hr>

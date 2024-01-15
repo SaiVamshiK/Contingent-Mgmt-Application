@@ -19,6 +19,7 @@
             </choice>
         </element>
         <element default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Rejection Comments" max_length="400" name="rejection_comments" type="string"/>
         <element label="Start date" max_length="40" name="start_date" read_only="true" type="glide_date_time"/>
         <element attributes="ignore_filter_on_new=false,ref_ac_columns=true" display="true" label="Worker Name" mandatory="true" max_length="32" name="worker_name" reference="sys_user" type="reference"/>
         <index name="index">

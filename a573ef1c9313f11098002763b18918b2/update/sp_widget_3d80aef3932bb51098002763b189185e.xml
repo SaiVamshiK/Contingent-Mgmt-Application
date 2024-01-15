@@ -116,7 +116,7 @@
     // Query the table and set the result in the 'records' variable
     var gr = new GlideRecord('sn_contingent_mgmt_contract_worker');
     gr.addQuery('contingent_request_manager', gs.getUserID());
-		gr.addQuery('isrenewalrequested','no');
+		gr.addEncodedQuery('isrenewalrequested=no^ORisrenewalrequested=approved');
 	
 		var currentDateTime = new GlideDateTime();
 		currentDateTime.addDaysUTC(14);
@@ -259,15 +259,19 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-12 11:14:52</sys_created_on>
         <sys_id>3d80aef3932bb51098002763b189185e</sys_id>
-        <sys_mod_count>128</sys_mod_count>
+        <sys_mod_count>135</sys_mod_count>
         <sys_name>Renew Contracts table</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sp_widget_3d80aef3932bb51098002763b189185e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-15 10:50:39</sys_updated_on>
+        <sys_updated_on>2024-01-15 11:56:08</sys_updated_on>
         <template><![CDATA[<div>
+  	<h1>Request Contract Renewals Page</h1>
+  	<hr>
+  	<p>Dear hiring manager,</p>
+  	<p>The following are the list of contracts that are expiring (within 14 days from now), please take necessary steps to renew it if required.</p>
     <table id="contingentWorkerTable" class="table">
         <thead>
             <tr>
@@ -280,7 +284,7 @@
                 <td>{{record.startDate}}</td>
                 <td>{{record.endDate}}</td>
                 <td>{{record.manager}}</td>
-	              <td><button class="renew-button" ng-click="c.showConfirmationForRenewalRequest(record.sys_id)">Renew</button></td>
+	              <td><button class="renew-button" ng-click="c.showConfirmationForRenewalRequest(record.sys_id)">Request Renewal</button></td>
             </tr>
         </tbody>
     </table>

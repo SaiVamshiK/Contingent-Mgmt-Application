@@ -4,6 +4,44 @@
         <client_script><![CDATA[api.controller=function($scope,spModal) {
   /* widget controller */
   var c = this;
+	
+	c.showConfirmationReject = function(sysId) {
+        var dialogConfig = {
+            header: "Confirmation",
+            message: "Are you sure you want to reject this request for renewal of contract?",
+            buttons: [{
+                label: "Yes",
+                primary: true,
+                value: "yes"
+            }, {
+                label: "No",
+                primary: false,
+                value: "no"
+            }]
+        };
+				console.log('Click');
+				spModal.open(dialogConfig).then(function(response) {
+						console.log('RESPONSE ', response);
+            if (response.value === 'yes') {
+                c.rejectRecord(sysId);
+            } else {
+                console.log('Renewal approval canceled by the contingent owner.');
+            }
+        });
+    };
+	
+	c.rejectRecord = function (sysId) {
+				console.log('Reject Renewal called');
+				console.log('Sys_id : ' + sysId);
+				c.data.action = 'rejectRenewContract';
+				c.data.sysID = sysId;
+				c.server.update().then(function(){
+					c.data.action = undefined;
+					c.data.sysID = '';
+					c.server.refresh();
+				})
+    };
+	
 	c.showConfirmation = function(sysId) {
         var dialogConfig = {
             header: "Confirmation",
@@ -62,7 +100,7 @@
   /* e.g., data.table = $sp.getValue('table'); */
 	data.records = [];
 	data.userID = gs.getUserID();
-	data.header = ['Worker Name','Start Date','End Date','Contingent Request Manager','Approve'];
+	data.header = ['Worker Name','Start Date','End Date','Contingent Request Manager','Approve','Reject'];
 	
 	var gr = new GlideRecord('sn_contingent_mgmt_contract_worker');
 	gr.addQuery('contract_owner.owner_name', gs.getUserID());
@@ -128,27 +166,53 @@
 				}
 				gs.info('Update done');
 			}
+			if(input.action == 'rejectRenewContract'){
+				var rejectsysID = input.sysID;
+				var gr3 = new GlideRecord('sn_contingent_mgmt_contract_worker');
+				if(gr3.get(rejectsysID)){
+					gr3.isrenewalrequested = 'rejected';
+					gr3.update();
+				}
+			}
 	}
 	
-})();]]></script>
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-15 11:09:15</sys_created_on>
         <sys_id>b7bbbd70933bf51098002763b18918d1</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>Approve Renewals table</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sp_widget_b7bbbd70933bf51098002763b18918d1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-15 11:35:14</sys_updated_on>
+        <sys_updated_on>2024-01-15 15:10:35</sys_updated_on>
         <template><![CDATA[<div>
-<!-- your widget template -->
-  <h1>
-    Contingent Owner Approve renewals table
-  </h1>
+  <h1>Renewals Approval Page</h1>
+  	<hr>
+  	<p>Dear contingent owner,</p>
+  	<p>The following are the list of contracts that are requested for renewal by the hiring manager. Approve or reject the contracts as required.</p>
   <table id="contingentWorkerTable" class="table">
         <thead>
             <tr>
@@ -162,6 +226,7 @@
                 <td>{{record.endDate}}</td>
                 <td>{{record.manager}}</td>
 	              <td><button class="renew-button"ng-click="c.showConfirmation(record.sys_id)">Approve Renewal</button></td>
+              	<td><button class="renew-button"ng-click="c.showConfirmationReject(record.sys_id)">Reject Renewal</button></td>
             </tr>
         </tbody>
     </table>

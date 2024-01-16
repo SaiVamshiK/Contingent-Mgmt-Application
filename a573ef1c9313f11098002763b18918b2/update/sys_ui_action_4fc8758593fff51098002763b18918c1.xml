@@ -2,19 +2,19 @@
     <sys_ui_action action="INSERT_OR_UPDATE">
         <action_name/>
         <active>true</active>
-        <client>true</client>
+        <client>false</client>
         <client_script_v2><![CDATA[function onClick(g_form) {
 
 }]]></client_script_v2>
         <comments/>
-        <condition>gs.hasRole("sn_contingent_mgmt.contingent_hiring_manager")</condition>
+        <condition>gs.hasRole("sn_contingent_mgmt.contingent_hiring_manager") &amp;&amp; current.state == '1'</condition>
         <form_action>true</form_action>
         <form_button>true</form_button>
         <form_button_v2>false</form_button_v2>
         <form_context_menu>false</form_context_menu>
         <form_link>false</form_link>
         <form_menu_button_v2>false</form_menu_button_v2>
-        <form_style/>
+        <form_style>primary</form_style>
         <format_for_configurable_workspace>false</format_for_configurable_workspace>
         <hint/>
         <isolate_script>false</isolate_script>
@@ -30,12 +30,9 @@
         <name>Place Request</name>
         <onclick>onClickRequestForWorker()</onclick>
         <order>100</order>
-        <script><![CDATA[function onClickRequestForWorker() {
-	var ans = confirm('Please confirm if you want to make a request for a contingent worker');
-	if(ans === true){
-		g_form.setValue('state', 2); // 2 is the value for 'Requested'
-	}
-}]]></script>
+        <script><![CDATA[current.state = '2';
+current.update();
+action.setRedirectURL(current);]]></script>
         <show_insert>true</show_insert>
         <show_multiple_update>false</show_multiple_update>
         <show_query>false</show_query>
@@ -46,7 +43,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4fc8758593fff51098002763b18918c1</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Place Request</sys_name>
         <sys_overrides/>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
@@ -54,7 +51,7 @@
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sys_ui_action_4fc8758593fff51098002763b18918c1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-16 05:48:52</sys_updated_on>
+        <sys_updated_on>2024-01-16 14:31:36</sys_updated_on>
         <table>sn_contingent_mgmt_contingent_request</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

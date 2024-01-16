@@ -16,7 +16,7 @@
         <column_label>Employment status</column_label>
         <comments/>
         <create_roles/>
-        <default_value/>
+        <default_value>unemployed</default_value>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
@@ -58,7 +58,7 @@
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sys_dictionary_sn_contingent_mgmt_contract_worker_employment_status</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-12-27 11:41:51</sys_updated_on>
+        <sys_updated_on>2024-01-16 07:37:02</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

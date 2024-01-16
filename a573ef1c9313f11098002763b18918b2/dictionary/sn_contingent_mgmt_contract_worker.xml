@@ -3,7 +3,7 @@
         <element label="Contingent Request" max_length="32" name="contingent_request" read_only="true" reference="sn_contingent_mgmt_contingent_request" type="reference"/>
         <element label="Contingent Request Manager" max_length="32" name="contingent_request_manager" reference="sys_user" type="reference"/>
         <element label="Contract Owner" max_length="32" name="contract_owner" read_only="true" reference="sn_contingent_mgmt_contract_owner" type="reference"/>
-        <element choice="1" label="Employment status" max_length="40" name="employment_status" type="choice">
+        <element choice="1" default="unemployed" label="Employment status" max_length="40" name="employment_status" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Employed" value="employed"/>
                 <element inactive_on_update="false" label="Unemployed" value="unemployed"/>

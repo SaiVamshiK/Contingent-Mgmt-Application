@@ -5,6 +5,31 @@
   /* widget controller */
   var c = this;
 	
+	c.showRejectModal = false;
+	c.rejectionSYSID = '';
+
+	c.showConfirmationReject1 = function(sysId) {
+		c.rejectReason = "";
+		c.showRejectModal = true;
+		c.rejectionSYSID = sysId;
+	};
+
+	c.closeRejectModal = function() {
+		c.showRejectModal = false;
+	};
+
+	c.submitRejection = function() {
+		// Handle rejection logic
+		if(c.rejectReason.length === 0){
+			alert('Rejection comments are required');
+		}else{
+			console.log('Rejection Reason:', c.rejectReason);
+			c.rejectRecord(c.rejectionSYSID,c.rejectReason);
+			// Close the modal
+			c.closeRejectModal();
+		}
+	};
+	
 	c.showConfirmationReject = function(sysId) {
 				c.rejectReason = "Hard coded reason for rejection!";
         var dialogConfig = {
@@ -18,17 +43,19 @@
                 label: "No",
                 primary: false,
                 value: "no"
-            }]
+            }],
+						input: true
         };
 				console.log('Click');
 				spModal.open(dialogConfig).then(function(response) {
-						console.log('RESPONSE ', response);
+						console.log('response: ', response);
             if (response.value === 'yes') {
-                c.rejectRecord(sysId,c.rejectReason);
+                //c.rejectRecord(sysId,c.rejectReason);
             } else {
                 console.log('Renewal approval canceled by the contingent owner.');
             }
         });
+				
     };
 	
 	c.rejectRecord = function (sysId,reasonForRejection) {
@@ -82,7 +109,59 @@
     };
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css>/* Additional styling for the Reject Renewal Modal input */
+.custom-modal input {
+  width: 80%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.custom-modal input:focus {
+  border-color: #3498db; /* Highlight border color on focus, you can change this */
+}
+
+.custom-modal button {
+  background-color: #e74c3c; /* Red color, you can change this */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-modal button:hover {
+  background-color: #c0392b; /* Darker red color on hover, you can change this */
+}
+
+.custom-modal label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.custom-modal .modal-content {
+  text-align: center;
+}
+
+.custom-modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+}
+
+.custom-modal .close:hover {
+  color: #333;
+}
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -206,19 +285,20 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-01-15 11:09:15</sys_created_on>
         <sys_id>b7bbbd70933bf51098002763b18918d1</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>80</sys_mod_count>
         <sys_name>Approve Renewals table</sys_name>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
         <sys_update_name>sp_widget_b7bbbd70933bf51098002763b18918d1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-16 06:48:14</sys_updated_on>
+        <sys_updated_on>2024-01-16 09:46:11</sys_updated_on>
         <template><![CDATA[<div>
   <h1>Renewals Approval Page</h1>
   	<hr>
   	<p>Dear contingent owner,</p>
   	<p>The following are the list of contracts that are requested for renewal by the hiring manager. Approve or reject the contracts as required.</p>
+  
   <table id="contingentWorkerTable" class="table">
         <thead>
             <tr>
@@ -232,10 +312,21 @@
                 <td>{{record.endDate}}</td>
                 <td>{{record.manager}}</td>
 	              <td><button class="renew-button"ng-click="c.showConfirmation(record.sys_id)">Approve Renewal</button></td>
-              	<td><button class="renew-button"ng-click="c.showConfirmationReject(record.sys_id)">Reject Renewal</button></td>
+              	<td><button class="renew-button"ng-click="c.showConfirmationReject1(record.sys_id)">Reject Renewal</button></td>
             </tr>
         </tbody>
     </table>
-</div>]]></template>
+  <div id="rejectRenewalModal" class="custom-modal" ng-show="c.showRejectModal">
+    <div class="modal-content">
+      <span class="close" ng-click="c.closeRejectModal()">&times;</span>
+      <label for="rejectionReason">Reason for Rejection:</label>
+      <input type="text" id="rejectionReason" ng-model="c.rejectReason">
+      <br>
+      <button ng-click="c.submitRejection()">Submit Rejection</button>
+    </div>
+  </div>
+  
+</div>
+]]></template>
     </sp_widget>
 </record_update>

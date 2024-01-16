@@ -5,20 +5,20 @@
         <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>true</action_update>
+        <action_update>false</action_update>
         <active>true</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
-        <collection>sn_contingent_mgmt_req_worker_map</collection>
+        <collection>sn_contingent_mgmt_contract_worker</collection>
         <condition/>
         <description/>
         <execute_function>false</execute_function>
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Avoid duplicates - Req Worker Map</name>
+        <name>Avoid duplicates - Contract worker</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -30,36 +30,37 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
 
     // Add your code here
-    var contingentRequest = current.contingent_request;
-    var contractWorker = current.contract_worker;
-    var gr = new GlideRecord('sn_contingent_mgmt_req_worker_map');
-    gr.addQuery('contract_worker', contractWorker);
-    gr.query();
+    var workerName = current.worker_name;
 
-    if (gr.hasNext()) {
-        // Duplicate record found, prevent the insert
-        gs.addErrorMessage('The contract worker has already been assigned to a contingent request. Please assign someone else...');
+    var existingRecord = new GlideRecord('sn_contingent_mgmt_contract_worker');
+    existingRecord.addQuery('worker_name', workerName);
+    existingRecord.query();
+
+    if (existingRecord.next()) {
+        // If a record with the same worker_name exists, prevent the insertion
+        gs.addErrorMessage("A record for this worker already exists. Duplicate entries are not allowed.");
         current.setAbortAction(true);
     }
+
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2024-01-06 13:24:45</sys_created_on>
+        <sys_created_on>2024-01-16 06:54:43</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>a23444ce932ff11098002763b1891882</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Avoid duplicates - Req Worker Map</sys_name>
+        <sys_id>101b0a019373391098002763b189185b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Avoid duplicates - Contract worker</sys_name>
         <sys_overrides/>
         <sys_package display_value="Contingent Mgmt Application" source="sn_contingent_mgmt">a573ef1c9313f11098002763b18918b2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Contingent Mgmt Application">a573ef1c9313f11098002763b18918b2</sys_scope>
-        <sys_update_name>sys_script_a23444ce932ff11098002763b1891882</sys_update_name>
+        <sys_update_name>sys_script_101b0a019373391098002763b189185b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-01-16 07:09:08</sys_updated_on>
+        <sys_updated_on>2024-01-16 07:05:06</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=a23444ce932ff11098002763b1891882"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=101b0a019373391098002763b189185b"/>
 </record_update>
